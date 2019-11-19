@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Status extends Model {
+class TipoCulto extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -8,11 +8,11 @@ class Status extends Model {
       },
       {
         sequelize,
-        tableName: 'status'
+        tableName: 'tipos_cultos'
       }
     );
     return this;
   }
 }
 
-export default Status;
+export default TipoCulto;

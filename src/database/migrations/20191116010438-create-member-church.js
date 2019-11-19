@@ -39,11 +39,11 @@ module.exports = {
         onUpload: 'CASCADE',
         onDelete: 'SET NULL'
       },
-      id_situacao: {
+      id_status: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,
-        REFERENCES: { MODEL: 'status_padrao', key: 'id' },
+        REFERENCES: { MODEL: 'status', key: 'id' },
         onUpload: 'CASCADE',
         onDelete: 'SET NULL'
       },

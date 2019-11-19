@@ -1,7 +1,7 @@
 module.exports = {
   up: QueryInterface => {
     return QueryInterface.bulkInsert(
-      'status_padrao',
+      'status',
       [
         {
           id: 0,

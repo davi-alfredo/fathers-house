@@ -25,11 +25,23 @@ module.exports = {
       },
       preleitor: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+      },
+      valor_oferta: {
+        type: Sequelize.NUMERIC,
+        allouNull: true
       },
       data: {
-        type: Sequelize.DATEONLY,
+        type: Sequelize.DATE,
         allowNull: false
+      },
+      id_tipo_culto: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+        REFERENCES: { MODEL: 'tipos_cultos', key: 'id' },
+        onUpload: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       created_at: {
         type: Sequelize.DATE,

@@ -4,8 +4,10 @@ import Membro from '../app/models/Membro';
 import Endereco from '../app/models/Endereco';
 import Arquivo from '../app/models/Arquivo';
 import Status from '../app/models/Status';
+import Culto from '../app/models/Culto';
+import TipoCulto from '../app/models/TipoCulto';
 
-const models = [Membro, Endereco, Arquivo, Status];
+const models = [Membro, Endereco, Arquivo, Status, Culto, TipoCulto];
 class DataBase {
   constructor() {
     this.init();

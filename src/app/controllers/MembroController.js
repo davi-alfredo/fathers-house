@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import Membro from '../models/Membro';
 import Endereco from '../models/Endereco';
 import Arquivo from '../models/Arquivo';
-// import Status from '../models/Status';
+import Status from '../models/Status';
 
 class MembroController {
   async index(req, res) {
@@ -11,13 +11,13 @@ class MembroController {
 
     if (id) {
       const membro = await Membro.findByPk(id, {
-        attributes: ['id', 'nome', 'email', 'data_nascimento', 'id_situacao'],
+        attributes: ['id', 'nome', 'email', 'data_nascimento', 'idade'],
         include: [
-          // {
-          //   model: Status,
-          //   as: 'status',
-          //   attributes: ['id', 'descricao']
-          // },
+          {
+            model: Status,
+            as: 'status',
+            attributes: ['id', 'descricao']
+          },
           {
             model: Endereco,
             as: 'endereco',
@@ -34,20 +34,20 @@ class MembroController {
           {
             model: Arquivo,
             as: 'avatar',
-            attributes: ['id', 'nome_arquivo', 'diretorio']
+            attributes: ['nome_arquivo', 'diretorio', 'url']
           }
         ]
       });
       return res.status(200).json(membro);
     }
     const membros = await Membro.findAll({
-      attributes: ['id', 'nome', 'email', 'data_nascimento'],
+      attributes: ['id', 'nome', 'email', 'data_nascimento', 'idade'],
       include: [
-        // {
-        //   model: Status,
-        //   as: 'status',
-        //   attributes: ['id', 'descricao']
-        // },
+        {
+          model: Status,
+          as: 'status',
+          attributes: ['id', 'descricao']
+        },
         {
           model: Endereco,
           as: 'endereco',
@@ -64,7 +64,7 @@ class MembroController {
         {
           model: Arquivo,
           as: 'avatar',
-          attributes: ['id', 'nome_arquivo', 'diretorio']
+          attributes: ['nome_arquivo', 'diretorio', 'url']
         }
       ]
     });
